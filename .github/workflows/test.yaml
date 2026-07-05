@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  pull_request: ['**']
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Run Unit Tests
+        run: cargo test
+
+  fuzzing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nightly
+        run: rustup toolchain install nightly --profile minimal
+      - name: Install cargo-fuzz
+        run: cargo install cargo-fuzz
+      - name: Run Fuzzing Tests
+        run: |
+          for target in $(cargo fuzz list); do
+            cargo +nightly fuzz run $target -- -runs=10000 -max_total_time=30
+          done

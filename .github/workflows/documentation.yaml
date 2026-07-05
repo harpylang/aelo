@@ -18,6 +18,7 @@ jobs:
       - name: Build Documentation
         run: |
           cargo doc --no-deps --document-private-items
+          cp -r target/doc/aelo/* target/doc/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

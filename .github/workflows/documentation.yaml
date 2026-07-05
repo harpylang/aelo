@@ -18,7 +18,7 @@ jobs:
       - name: Build Documentation
         run: |
           cargo doc --no-deps --document-private-items
-          cp -r target/doc/aelo/* target/doc/
+          echo '<meta http-equiv="refresh" content="0; url=aelo/index.html">' > target/doc/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

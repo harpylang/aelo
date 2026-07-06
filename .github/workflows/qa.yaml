@@ -2,6 +2,9 @@ name: Quality Assurance
 
 on:
   pull_request: ['**']
+  push:
+    branches:
+      - main
 
 jobs:
   lint-and-format:

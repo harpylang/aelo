@@ -11,17 +11,11 @@ body:
         ### Before submitting an issue
         Please make sure you have read our [Issue Contribution Guide](https://github.com/harpylang/aelo/tree/main/documentation/guides/issues.md). It contains detailed instructions on how to extract all the required CPU and system information below.
 
-  - type: image_uploader
-    id: visual-evidence
-    attributes:
-      label: Visual Evidence
-      description: Drag and drop or paste any images that help show the issue immediately.
-
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: Provide a clear and concise description of what the bug is.
+      label: Description & Visual Evidence
+      description: Provide a clear and concise description of what the bug is. Feel free to drag/drop or paste images directly here.
     validations:
       required: true
 

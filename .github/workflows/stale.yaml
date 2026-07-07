@@ -1,0 +1,30 @@
+name: Stale Manager
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/actions-stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 30
+          days-before-close: 7
+          operations-per-run: 50
+          stale-issue-label: 'status: stale'
+          stale-pr-label: 'status: stale'
+          only-issue-labels: 'status: review-required'
+          only-pr-labels: 'status: review-required'
+          any-of-issue-labels: ''
+          any-of-pr-labels: ''
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has been awaiting review for over a month without activity. It will be closed in 7 days if no further action is taken.
+          stale-pr-message: >
+            This pull request has been automatically marked as stale because it has been awaiting review for over a month without activity. It will be closed in 7 days if no further updates are provided.

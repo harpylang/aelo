@@ -12,8 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: Run Unit Tests
+
+      - name: Run Rust Unit Tests
         run: cargo test
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+
+      - name: Run Python Unit Tests
+        run: python3 tests/python/runner.py
 
   fuzzing:
     runs-on: ubuntu-latest

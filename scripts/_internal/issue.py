@@ -42,3 +42,41 @@ class IssueType(str, enum.Enum):
 
     FeatureRequest = "Feature Request"
     BugReport = "Bug Report"
+
+
+class Issue(object):
+    """
+    Represents a structured GitHub issue matching the repository form
+    templates.
+
+    The state of an issue encapsulates its metadata and a dictionary of fields
+    mapped directly from the target form layout schema.
+    """
+
+    def __init__(self, issue_type: IssueType, title: str) -> None:
+        """
+        Initializes a new issue container with a distinct layout configuration.
+
+        Based on the `issue_type`, this constructor assigns the appropriate
+        labels and extracts the schema mapping that governs which tracking
+        fields are expected.
+
+        # Errors
+
+        - **ValueError:** Raised if the provided `title` is empty or contains only whitespace characters.
+        """
+        self.issue_type: IssueType = issue_type
+
+        if not title.strip():
+            raise ValueError("The issue title cannot be blank.")
+
+        self.title: str = title
+
+        if self.issue_type == IssueType.BugReport:
+            self.labels: typing.List[str] = _BUG_REPORT_LABELS.copy()
+            self._expected_fields = _BUG_FIELDS
+        else:
+            self.labels = _FEATURE_REQUEST_LABELS.copy()
+            self._expected_fields = _FEATURE_FIELDS
+
+        self.fields: typing.Dict[str, str] = {}

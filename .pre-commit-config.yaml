@@ -16,3 +16,14 @@ repos:
       - id: clippy
         args: ["--", "-D", "warnings"]
       - id: cargo-check
+
+  - repo: https://github.com/psf/black
+    rev: 26.5.1
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v2.2.0
+    hooks:
+      - id: mypy
+        args: [--strict]

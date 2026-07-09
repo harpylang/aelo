@@ -1,0 +1,25 @@
+#     )
+#  ( /(                                   (           (
+#  )\())    )  (           (              )\       (  )\
+# ((_)\  ( /(  )(   `  )   )\ )     __ ((((_)(    ))\((_) (
+#  _((_) )(_))(()\  /(/(  (()/(    / /  )\ _ )\  /((_)_   )\
+# | || |((_)_  ((_)((_)_\  )(_))  / /   (_)_\(_)(_)) | | ((_)
+# | __ |/ _` || '_|| '_ \)| || | /_/     / _ \  / -_)| |/ _ \
+# |_||_|\__,_||_|  | .__/  \_, |        /_/ \_\ \___||_|\___/
+#                  |_|     |__/
+#
+# Copyright 2026 Ismael Moreira
+#
+# This file is distributed under the BSD 3-Clause License.
+#
+# See the LICENSE.txt file for more information.
+import unittest
+
+from _internal.issue.test_issue_initialization import TestIssueInitialization
+from _internal.issue.test_issue_set_field import TestIssueSetField
+from _internal.issue.test_issue_generate_markdown import TestIssueGenerateMarkdown
+from _internal.issue.test_issue_save_local import TestIssueSaveLocal
+from _internal.issue.test_issue_send_to_github import TestIssueSendToGithub
+
+if __name__ == "__main__":
+    unittest.main()

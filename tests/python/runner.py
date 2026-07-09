@@ -15,11 +15,15 @@
 # See the LICENSE.txt file for more information.
 import unittest
 
-from _internal.issue.test_issue_initialization import TestIssueInitialization
-from _internal.issue.test_issue_set_field import TestIssueSetField
-from _internal.issue.test_issue_generate_markdown import TestIssueGenerateMarkdown
-from _internal.issue.test_issue_save_local import TestIssueSaveLocal
-from _internal.issue.test_issue_send_to_github import TestIssueSendToGithub
+from tests.python._internal.issue.test_issue_initialization import (
+    TestIssueInitialization,
+)
+from tests.python._internal.issue.test_issue_set_field import TestIssueSetField
+from tests.python._internal.issue.test_issue_generate_markdown import (
+    TestIssueGenerateMarkdown,
+)
+from tests.python._internal.issue.test_issue_save_local import TestIssueSaveLocal
+from tests.python._internal.issue.test_issue_send_to_github import TestIssueSendToGithub
 
 if __name__ == "__main__":
     unittest.main()

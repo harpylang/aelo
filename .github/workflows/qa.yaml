@@ -33,4 +33,4 @@ jobs:
       - name: Python Format Check
         run: black --check scripts/ tests/
       - name: Python Type Check
-        run: mypy --strict scripts/ tests/
+        run: mypy --strict --explicit-package-bases scripts/ tests/

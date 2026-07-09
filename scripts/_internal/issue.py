@@ -80,3 +80,22 @@ class Issue(object):
             self._expected_fields = _FEATURE_FIELDS
 
         self.fields: typing.Dict[str, str] = {}
+
+    def set_field(self, field_identifier: str, value: str) -> None:
+        """
+        Binds a sanitized text payload to a specific issue form field.
+
+        The value is trimmed of leading and trailing whitespaces before
+        assignment.
+
+        # Errors
+
+        - **KeyError:** Raised if the `field_identifier` does not exist within the allowed fields definition for the active `IssueType`.
+        """
+        if field_identifier not in self._expected_fields:
+            raise KeyError(
+                f"The '{field_identifier}' field is invalid for the {self.issue_type.value} type. "
+                f"Allowed fields: {list(self._expected_fields.keys())}"
+            )
+
+        self.fields[field_identifier] = value.strip()

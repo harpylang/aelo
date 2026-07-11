@@ -38,6 +38,16 @@ from tests.python.tooling.test_tool_checker_verify import TestToolCheckerVerify
 from tests.python.tooling.test_tool_checker_main_pipeline import (
     TestToolCheckerMainPipeline,
 )
+from tests.python.scripts.test_script_discoverer_module_loader import (
+    TestScriptDiscovererModuleLoader,
+)
+from tests.python.scripts.test_script_discoverer_resolution import (
+    TestScriptDiscovererResolution,
+)
+from tests.python.scripts.test_discovery_presenter import (
+    TestDiscoveryPresenter,
+)
+from tests.python.scripts.test_scripts_main_pipeline import TestScriptsMainPipeline
 
 if __name__ == "__main__":
     unittest.main()

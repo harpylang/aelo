@@ -19,6 +19,25 @@ import shutil
 import argparse
 import sys
 
+from scripts._internal.types import FlagManifest
+
+SCRIPT_TOOLING_FLAGS: FlagManifest = {
+    "--search": (
+        "<tool_name>",
+        "Checks whether a specific tool is available and matches target version schemas.",
+    ),
+    "--all": (None, "Verify all registered environment toolkit manifests."),
+    "--list": (None, "List target specifications for registered tools."),
+    "--version": (
+        "<tool_name>",
+        "Display the expected target version for a specific mapping.",
+    ),
+}
+SCRIPT_TOOLING_WHO_AM_I: str = (
+    "Provides automated local validation for the active host environment toolchain, "
+    "ensuring required dependencies match the repository baseline specifications."
+)
+
 TOOL_TABLE: typing.Dict[str, str] = {
     "python": "3.13.5",
     "rustc": "1.96.1",
